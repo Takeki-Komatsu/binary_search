@@ -7,9 +7,9 @@ int A[100000];
 int p (int m){
   int a, b;
   for(a=0; a<n;a++){
-    b=b+ (A[a]+m-1)/m;
+    b=b+(A[a]+m-1)/m;
   }
-  return b<=k;
+  return b<k;
 }
 
 int main(){
