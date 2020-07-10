@@ -6,10 +6,22 @@ int A[100000];
 
 int p (int m){
   int a, b;
+  b=0;
   for(a=0; a<n;a++){
-    b=b+A[a]/m;
+    b=b+(A[a])/(m);
   }
   return b<k;
+}
+
+int max(){
+  int c,max;
+  max=A[0];
+  for(c=1;c<n;c++){
+    if (A[c]>max){
+      max=A[c];
+    }
+  }
+  return max;
 }
 
 int main(){
@@ -19,16 +31,16 @@ int main(){
     scanf("%d", &A[i]);
   }
   lb=0;
-  ub=A[n-1]*n/k;
-  while(ub-lb>0){
-    int mid =(ub-lb)/2;
+  ub=max();
+  while (ub-lb>1){
+    int mid = (lb+ub)/2;
     if(p(mid)){
       ub=mid;
     }
-    else {
+    else{
       lb=mid;
     }
   }
-  printf("%d\n",ub);
+  printf("%d\n",lb);
   return 0;
 }
